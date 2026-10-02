@@ -1,31 +1,30 @@
-# GitHub Actions workflow to deploy metadata to Salesforce
 name: Deploy to Salesforce
 
 on:
   push:
     branches:
-      - main  # Adjust this to your target deployment branch (e.g., master, develop)
+      - main
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
+    # Changed from ubuntu-latest to pin it to a stable image during the GitHub migration period
+    runs-on: ubuntu-24.04
 
     steps:
-      # Step 1: Checkout the source code from the repository
+      # Upgraded from @v3 to @v4 to resolve the Node.js deprecation warning
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      # Step 2: Install the Salesforce CLI globally using NPM
+      # Combined step to update npm and install Salesforce CLI safely
       - name: Install Salesforce CLI with NPM
         run: |
+          npm install -g npm@latest
           npm install @salesforce/cli --global
 
-      # Step 3: Authenticate to the Salesforce Org using the Auth URL secret
       - name: Authenticate to Salesforce
         run: |
           echo "${{ secrets.SFDX_AUTH_URL }}" | sf org login sfdx-url --alias vscodeOrg --set-default --sfdx-url-stdin
 
-      # Step 4: Deploy the project metadata to the authenticated Salesforce Org
       - name: Deploy to Salesforce
         run: |
           sf project deploy start --target-org vscodeOrg --wait 30
