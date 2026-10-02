@@ -1,0 +1,34 @@
+<template>
+ <lightning-card titel="Base lightning component for lightning record edit form">   
+<lightning-record-edit-form object-api-name='Account' record-id={recordId}>
+  <lightning-layout class="slds-p-around_small">
+    <lightning-layout-item size="6" padding="horizontal-small">
+      <lightning-input-field field-name={nameField}></lightning-input-field>
+    </lightning-layout-item>
+    <lightning-layout-item size="6" padding="horizontal-small">
+      <lightning-input-field field-name={type}></lightning-input-field>
+    </lightning-layout-item>
+  </lightning-layout>
+
+  <lightning-layout class="slds-p-around_small">
+    <lightning-layout-item width="50%" padding="horizontal-small">
+      <lightning-input-field field-name="Contact_Name__c"></lightning-input-field>
+    </lightning-layout-item>
+    <lightning-layout-item width="50%" padding="horizontal-small">
+      <lightning-input-field field-name="Phone"></lightning-input-field>
+    </lightning-layout-item>
+  </lightning-layout>
+
+  <lightning-layout class="slds-p-arounf_small">
+     <lightning-layout-item  size = "6" padding="horizontal-small">
+         <lightning-input-field field-name="ParentId" value={parentId} onchange={handleParentChange}>
+          </lightning-input-field>
+      </lightning-layout-item>
+  </lightning-layout>  
+   <div class="slds-var-m-top_medium">
+       <lightning-button variant="brand" label="save" type="submit"></lightning-button>
+     </div>
+ 
+</lightning-record-edit-form>
+ </lightning-card>
+</template>

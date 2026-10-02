@@ -1,0 +1,32 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="leadObj" type="Lead"  default="{ 'sobjectType': 'Lead' }"/>
+    <force:recordData 
+                     recordId="{!v.recordId}" 
+                     layoutType="Full"
+                     targetRecord="{!v.leadObj}"
+                     targetFields="{!v.recordFields}"
+                     targetError="{!v.recordError}"
+                     recordUpdated="{!c.handleRecordUpdated}"/> 
+       <div aura:id = "maincontainer" class="maincontainer"  style="background-color: #fff" > 
+        <lightning:workspaceAPI aura:id="workspace"/>
+         <lightning:recordEditForm  objectApiName="Lead" aura:id="leadform" onSuccess="{!c.handleSuccess}" onError="{!c.hndleError}">
+          <div class="slds-grid slds-wrap slds-card"  style="width:100%;font-weight:bold;color:#475C91"><br/>
+             <div class="slds-size_1-of-1" style="width:100%">
+                <div class="demo-only" style="padding:0.5rem;background:#ffffff">
+                    <h2 class = "slds-text-color_inverse slds-text-align_center" style="font-size:20px;text-alignment:centre;color:#000000"><b>New Lead</b> </h2>
+                </div> 
+              </div> 
+                  <div class="slds-size_1-of-1" style="width:100%">
+                    <h2 class = "slds-section-title--divider slds-text-align_center" style="font-size:15px;padding:0.5rem;background:#002db3;color:#FFFFF5"><b>Lead Information</b> </h2>
+                  </div>
+              <div class="slds-size_1-of-2 slds-p-around_small divlable">
+                  <lightning:inputField aura:id="name" class="lablecolor" fieldName="Name" value="{!v.leadObj.Name}"/>              
+              </div>
+                <div class="slds-size_1-of-2 slds-p-around_small divlable">
+                  <lightning:inputField aura:id="mobileno" class="lablecolor" fieldName="MobilePhone" value="{!v.leadObj.MobilePhone}"/>              
+              </div>
+              
+          </div>   
+         </lightning:recordEditForm>  
+        </div>  
+</aura:component>

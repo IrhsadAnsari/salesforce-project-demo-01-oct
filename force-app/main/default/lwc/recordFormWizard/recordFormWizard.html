@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title='Record Creation wizard'>
+        <div class="slds-m-around_medium">
+            <template lwc:if={isAccount}>
+                <lightning-record-edit-form
+                            object-api-name="Account">
+                    <lightning-messages></lightning-messages>
+                    <lightning-input label="Account Name" value={accountName} data-id="accountName" onchange={handleChange}></lightning-input>
+                    <lightning-input label="Phone" value={phone} data-id="phone" onchange={handleChange}></lightning-input>
+                    <lightning-input label="Account Creation Date" type="date" value={creationDate} data-id="creationDate" onchange={handleChange}></lightning-input>
+                    
+                    <lightning-button label="Next" onclick={createAccount}></lightning-button>
+                </lightning-record-edit-form>
+            </template>
+            <template lwc:if={isContact}>
+                <lightning-record-edit-form aura-id="form"
+                            object-api-name="Contact">
+                            <lightning-messages></lightning-messages>
+                    <lightning-input label="Fist Name" value={firstName} data-id="firstName" onchange={handleChange}></lightning-input>
+                    <lightning-input label="Last Name" value={lastName} data-id="lastName" onchange={handleChange}></lightning-input>
+                    <lightning-input label="Email" value={email} data-id="email" onchange={handleChange}></lightning-input>
+
+                    <lightning-input-field field-name="Phone" value={phone}></lightning-input-field>
+                    <lightning-input-field field-name="AccountId"  value={accountId}></lightning-input-field>
+                    
+                    <lightning-button label="Next" onclick={createContact}></lightning-button>
+                     <lightning-button type="reset" label="Reset"></lightning-button>
+                </lightning-record-edit-form>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

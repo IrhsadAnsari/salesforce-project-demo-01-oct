@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Bulk Import Purchase Orders">
+        <div class="slds-p-around_medium">
+            <lightning-combobox
+                label="Field Set"
+                options={fieldSetOptions}
+                value={fieldSetName}
+                onchange={handleFieldSetChange}>
+            </lightning-combobox>
+
+            <lightning-button label="Download Template" onclick={downloadTemplate}></lightning-button>
+
+            <lightning-input type="file" accept=".csv" onchange={handleFile}></lightning-input>
+
+            <lightning-button variant="brand" label="Import" onclick={handleImport}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Account Quick Display">
+        <div class="slds-var-p-around_medium">
+          <lightning-input type="text" value={enterName} onkeyup={AccountHandler}></lightning-input>
+          <p>AccountName- {enterName}</p>
+          <lightning-input type="text" value={name} label="Name"></lightning-input>
+          <lightning-input type="text" value={type} label="Type"></lightning-input>
+          <lightning-input type="text" value={industry} label="Industry"></lightning-input>
+
+        
+        <!-- <a href="https://tatatechnology4-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/{opporrtuntyId}/view">{outputOpportunity}</a>-->
+          <!--<lightning-formatted-url value="https://tatatechnology4-dev-ed.develop.lightning.force.com/lightning/r/Opportunity/{opporrtuntyId}/view" label={outputOpportunity}></lightning-formatted-url>-->  
+        </div>
+        <!--div class="slds-var-p-around_medium">
+          <a onclick={navigateToRecordPage}>{outputOpportunity}</a>
+        </div-->
+      </lightning-card>  
+</template>

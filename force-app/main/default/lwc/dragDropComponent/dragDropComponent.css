@@ -1,0 +1,25 @@
+.container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.draggable {
+    width: 100px;
+    height: 100px;
+    background-color: #0070d2;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: grab;
+    border-radius: 5px;
+}
+
+.dropzone {
+    width: 200px;
+    min-height: 150px;
+    border: 2px dashed #0070d2;
+    padding: 10px;
+    border-radius: 5px;
+}

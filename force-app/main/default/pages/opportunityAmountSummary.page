@@ -1,0 +1,9 @@
+<apex:page standardController="Opportunity" extensions="OpportunityLineItemController" >
+    <apex:pageBlock >
+        <apex:pageBlockSection title="Amount Summary Panel" columns="1">
+            <apex:outputText value="Total Amount: {!opportunityAmount}" />
+            <apex:outputText value="Total Quantity: {!opportunityQuantity}" />
+            <apex:outputText value="Average Price: {!averagePrice}" />
+        </apex:pageBlockSection>
+    </apex:pageBlock>
+</apex:page>

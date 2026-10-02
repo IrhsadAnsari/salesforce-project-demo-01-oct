@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="Post Office">
+      <div class="slds-m-top_small slds-m-bottom_medium">
+        <lightning-input label="Enter Pincode" type="text" value={pincode} onchange={pincodeHandler}></lightning-input>
+        <lightning-input label="Enter Branch Naem" type="text" value={branchName} onchange={branchNameHandler}></lightning-input>
+        <lightning-button variant="brand" label="Get Details"  onclick={handleSearch} class="slds-m-left_x-small">
+        </lightning-button>
+      </div>
+      <template if:true={data.length}>
+        <lightning-datatable
+            key-field="id"
+            data={data}
+            columns={columns}
+            class="slds-m-top_medium">
+        </lightning-datatable>
+    </template>
+    <template if:true={error}>
+        <p class="slds-text-color_error">An error occurred: {error}</p>
+    </template>   
+    </lightning-card>
+</template>

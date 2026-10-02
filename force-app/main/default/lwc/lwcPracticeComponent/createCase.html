@@ -1,0 +1,72 @@
+<template>
+    <!-- WELCOME TO LIGHTNING STUDIO -->
+    <div class="slds-m-around_medium">
+        <lightning-record-picker object-api-name="Account" label="Account Name" placeholder="Search Account"
+            filter={filter} display-info={displayInfo} matching-info={matchingInfo} onchange={handleChange}>
+        </lightning-record-picker>
+
+
+        <!-- Case Form -->
+
+        <template lwc:if={selectedAccountId}>
+
+            <div class="slds-m-top_large">
+
+                <lightning-card title="Case Details">
+
+                    <div class="slds-p-around_medium">
+
+                        <lightning-record-edit-form object-api-name="Case" onsuccess={handleSuccess}
+                            onerror={handleError} onsubmit={handleSubmit}>
+
+                            <!-- Account -->
+
+                            <lightning-input-field field-name="AccountId" value={selectedAccountId}>
+                            </lightning-input-field>
+
+
+                            <!-- Subject -->
+
+                            <lightning-input-field field-name="Subject" required value={accountName}>
+                            </lightning-input-field>
+
+
+                            <!-- Priority -->
+
+                            <lightning-input-field field-name="Priority">
+                            </lightning-input-field>
+
+                            <!-- Origin -->
+
+                            <lightning-input-field field-name="Origin">
+                            </lightning-input-field>
+
+                            <!-- Status -->
+
+                            <lightning-input-field field-name="Status">
+                            </lightning-input-field>
+
+                            <!-- Description -->
+
+                            <lightning-input-field field-name="Description">
+                            </lightning-input-field>
+
+                            <div class="slds-m-top_medium">
+                                <lightning-button type="submit" variant="brand" label="Create Case">
+                                </lightning-button>
+
+                            </div>
+                        </lightning-record-edit-form>
+<lightning-button
+    variant="brand"
+    label="Call"
+    onclick={handleCall}>
+</lightning-button>
+
+                    </div>
+                </lightning-card>
+            </div>
+        </template>
+    </div>
+
+</template>

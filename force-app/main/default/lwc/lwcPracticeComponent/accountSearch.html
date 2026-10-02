@@ -1,0 +1,14 @@
+<template>
+	<!-- WELCOME TO LIGHTNING STUDIO -->   
+	<p>Account Search :{selectedTemplate}</p>
+	<lightning-input
+            label="Account Name"
+            value={searchKey}
+            onchange={handleSearchChange}>
+    </lightning-input>
+	<lightning-card title ="Account Search">
+		<lightning-datatable key-field="Id"
+		data={accounts}
+		columns={columns}></lightning-datatable>
+	</lightning-card>
+</template>

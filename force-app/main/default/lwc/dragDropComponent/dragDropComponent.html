@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title='Drag Drop Component' class="slds-m-around_medium">
+    <div class="container">
+        <template for:each={items} for:item="item">
+            <div key={item.id} class="draggable" draggable="true" data-id={item.id} ondragstart={handleDragStart}>
+                {item.label}
+            </div>
+        </template>
+
+        <div class="dropzone" ondragover={handleDragOver} ondrop={handleDrop}>
+            <template if:true={droppedItems.length}>
+                <ul>
+                    <template for:each={droppedItems} for:item="dropped">
+                        <li key={dropped.id}>{dropped.label}</li>
+                    </template>
+                </ul>
+            </template>
+            <template if:false={droppedItems.length}>
+                Drop items here
+            </template>
+        </div>
+      </div> 
+    </lightning-card>
+   
+</template>

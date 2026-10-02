@@ -1,0 +1,56 @@
+<template>
+    <lightning-card title="Quick Add Item to PO" icon-name="action:new">
+        <div class="slds-m-around_medium">
+         
+            <div class="slds-grid slds-wrap slds-gutters"> 
+            
+           <!-- <lightning-combobox
+                label="Tax Group"
+                value={selectedTaxGroup}
+                placeholder="Select a Tax Group"
+                options={taxGroupOptions}
+                onchange={handleTaxGroupChange}>
+            </lightning-combobox>-->
+
+            <lightning-combobox
+                label="Product"
+                value={selectedProduct}
+                placeholder="Select an Item"
+                options={itemOptions}
+                onchange={handleItemChange}>
+            </lightning-combobox>
+
+             <lightning-input
+             label="Quanitity"
+             type="Number"
+             value={quantity}
+             onchange={handleQuantityChange}>
+             </lightning-input>
+
+             <!-- <lightning-input
+             label="Description"
+             type="text"
+             value={productDescription}
+             readonly>
+             </lightning-input>-->
+
+             <lightning-input
+             label="Unit Cost"
+             type="Number"
+             value={cost}
+             onchange={handleCostChange}>
+             </lightning-input>
+
+            <lightning-combobox
+                label="Price List"
+                value={selectedPriceList}
+                placeholder="Select a Price List"
+                options={priceListOptions}
+                onchange={handlePriceListChange}>
+            </lightning-combobox>
+           </div>   
+
+            <lightning-button label="Add to PO" onclick={handleAddItem} class="slds-m-top_medium"></lightning-button>
+        </div>
+    </lightning-card>
+</template>

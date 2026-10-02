@@ -1,0 +1,36 @@
+<template>
+  <lightning-card title="Radio button exaple in LWC">
+    <lightning-radio-group name="ContactReference"
+    label="Select Perfered Contac"
+    options={options}
+    value={selectedValues}
+    onchange={changeHandler}></lightning-radio-group>
+  </lightning-card>
+   <lightning-card title="Radio button exaple for Fetching recordBased on the Selcted Object and perform action">
+        <lightning-radio-group name="Genectic Object Slection"
+                                label="Select  Object"
+                                options={options1}
+                                value={selectedValues}
+                                onchange={changeObjectHandler}>
+        </lightning-radio-group>
+        <template lwc:if={recordValues}>
+            <lightning-datatable
+            key-field ="Id"
+            data= {recordValues}
+            columns={cols}
+            onrowselection={handleRowSelection}
+            ></lightning-datatable>
+        </template>
+        <template lwc:else>
+            <p>Reocrd is not Found.
+            </p>
+        </template>
+            <div class="slds-grid slds-grid_align-end">
+            <lightning-button variant="brand" label="Show Records"  onclick={getRecord}></lightning-button>
+                 <template lwc:if={hasSelectedRecord}>
+                   <lightning-button variant="Brand" label="updateRecord" onclick={updateHandler} style="color: red;"></lightning-button>
+                 </template>  
+            </div>
+          
+  </lightning-card>
+</template>

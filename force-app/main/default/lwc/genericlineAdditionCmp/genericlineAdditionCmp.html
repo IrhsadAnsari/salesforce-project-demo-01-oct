@@ -1,0 +1,25 @@
+<template>
+    <lightning-card title="Generic Line Addition">
+        <div class="slds-m-around_medium">
+            <lightning-record-edit-form object-api-name={relationShipObjectName}
+                onsuccess={handleSuccess}
+                onerror={handleError}
+                >
+                <lightning-layout>
+                    <lightning-layout-item size="3" padding="around-small">
+                        <template for:each={fields} for:item="field">
+                            <lightning-input-field key={field.fieldAPIName} field-name={field.fieldAPIName}></lightning-input-field>
+                        </template>
+                    </lightning-layout-item>
+                </lightning-layout>
+
+                <lightning-button
+                    variant="brand"
+                    label="Save"
+                    onclick={handleSave}
+                    class="slds-m-top_medium"
+                ></lightning-button>
+            </lightning-record-edit-form>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,7 @@
+<aura:component >
+    <p class="first"> This is my firs paragraph</p>
+    <div>
+      <p class="second">This is sesond Paragraph</p>
+     </div> 
+        <lightning:formattedText value="Hi This is my second Paragrhaph"/>
+</aura:component>

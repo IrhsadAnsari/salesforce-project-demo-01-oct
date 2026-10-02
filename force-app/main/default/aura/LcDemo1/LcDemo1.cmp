@@ -1,0 +1,20 @@
+<aura:component >
+    <aura:attribute name="var1" type="String" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <aura:attribute name="newAcc" type="Account" default="{'sobjecttype':'Acconut','Name':'Account'}" />
+    <aura:attribute name="listDemo" type="List" default="{ 'List1','List2' }"/>
+    <aura:attribute name="ArrayDemo" type="String[]" default="{ 'aar1','arr2' }"/>
+    <aura:attribute name="setDemo" type="set" default="{ 'set1','set2' }"/>
+    <aura:attribute name="mapDemo" type="map" default="{a:'map1',b:'map2'}"/>
+{!v.var1}  
+    <hr/>
+    {!v.newAcc.Name}
+    <hr/>
+    {!v.listDemo[1]}
+    <hr/>
+    {!v.ArrayDemo[0]}
+    <hr/>
+     {!v.setDemo[1]}
+    <hr/>
+    {!v.mapDemo.a}    
+</aura:component>

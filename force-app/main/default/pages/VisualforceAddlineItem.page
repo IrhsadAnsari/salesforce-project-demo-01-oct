@@ -1,0 +1,13 @@
+<apex:page standardController="Quote_Line_Item__c" extensions="QuoteLineItemController">
+    <apex:form >
+        <apex:pageBlock title="Add Line Item">
+            <!-- Add fields and input elements for your line item -->
+            <!-- Example: -->
+            <apex:inputField value="{!newQuoteLineItem.Product_Id__c}"  label="Product" required="true"/>
+            <apex:inputField value="{!newQuoteLineItem.Qunatity__c}"  label="Quantity" required="true"/>
+            <apex:inputField value="{!newQuoteLineItem.Unit_Price__c}"  label="Unit Price" required="true"/>
+
+            <apex:commandButton value="Save" action="{!saveLineItem}"/>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

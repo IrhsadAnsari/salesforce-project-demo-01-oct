@@ -1,0 +1,35 @@
+<template>
+  <lightning-card title="lookup component" icon-name="standard:account">
+     <div  slot="actions" class="slds-p-around_x-small">
+      <div class="slds-text-heading_medium slds-text-align_center">Action Panel</div>
+      <lightning-button-icon
+      icon-name="utility:refresh"
+      alternative-text="Refresh"
+      onclick={handleRefresh}
+      class="slds-m-right_xx-small"
+      ></lightning-button-icon>
+     </div>
+     
+     <div if:true={model} class="slds-m-around--medium slds-box--border"> 
+          <lightning-input type="text" title="Enter name" label="Enter Name"  placeholder="Enter account to search" value={searchKey}  onchange={handleSearch}></lightning-input>
+          <template lwc:if={showDropdown}>
+              <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid">
+                <template for:each={data} for:item="key">
+                    <li key={key.Id} class="slds-listbox__item" data-id={key.Id} data-name={key.Name} onclick={handleSelect}>
+                        <strong><p>{key.Name}</p></strong>
+                    </li>
+                  </template>
+              </ul>
+          </template>
+          <lightning-input type="text" label="First Name" value={fistNameValue} onchange={firstNameChaneHandler}></lightning-input>
+          <lightning-input type="text" label="LastName" value={lastNameValue} onchange={lastNameChaneHandler}></lightning-input>
+          <lightning-input type="email" label="Email" value={email} onchange={emailChaneHandler}></lightning-input>
+          <lightning-input type="number" label="Phone" value={phone} onchange={phoneChaneHandler}></lightning-input>
+          <lightning-button label="save" variant="brand" name="Save" onclick={saveHnadler}></lightning-button>
+          <lightning-button label="Cancel" variant="bare" name="Cancel" onclick={cancelHandler}></lightning-button>
+     </div>
+            <div slot="footer">
+            <lightning-button label="Cancel" onclick={closePanel} class="slds-m-around--x-small slds-float_right"></lightning-button>
+            </div>
+  </lightning-card>
+</template>

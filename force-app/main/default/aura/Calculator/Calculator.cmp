@@ -1,0 +1,24 @@
+<aura:component >
+    <div>
+           <p>This is calculator application</p> 
+    </div>
+    <aura:attribute name="firstnumber" type="decimal"/>
+    <aura:attribute name="secondnumber" type="decimal"/>
+    <aura:attribute name="result" type="decimal"/>
+    <div>
+    <ui:inputNumber label="first number:" aura:id="fnum" value="{!v.firstnumber}"/>
+    </div>
+    
+    <div>
+    <ui:inputNumber label="second number:" aura:id="snum" value="{!v.secondnumber}"/>
+    </div>
+    
+    <div>
+    <ui:inputNumber label="result:" aura:id="res" value="{!v.result}"/>
+   </div>
+    
+    <div>
+        <ui:button label="Click Me" press="{!c.calculate}" class="button"/>
+    </div>
+
+</aura:component>

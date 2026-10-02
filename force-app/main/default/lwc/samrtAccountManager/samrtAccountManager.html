@@ -1,0 +1,12 @@
+<template>
+    
+        <lightning-card title="Account Manager" icon-name="standard:account">
+            <c-account-search onsearch={handleSearch}></c-account-search>
+            <lightning-spinner if:true={isloading}></lightning-spinner>
+            <lightning-datatable
+             key-field="Id"
+            data={accounts}
+            columns={columns}>
+            </lightning-datatable>
+        </lightning-card>
+</template>

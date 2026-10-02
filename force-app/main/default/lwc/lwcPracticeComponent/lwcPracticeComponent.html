@@ -1,0 +1,14 @@
+<template>
+  <lightning-card title="Main Component">
+     <lightning-combobox
+            name="Seelct Template"
+            label="Select Template"
+            value={selectedTemplate}
+            placeholder="Please select a template"
+            options={templateOptions}
+            onchange={handleTemplateChange} >
+     </lightning-combobox>
+     <p>Selected Template :{selectedTemplate}</p>
+
+  </lightning-card>
+</template>

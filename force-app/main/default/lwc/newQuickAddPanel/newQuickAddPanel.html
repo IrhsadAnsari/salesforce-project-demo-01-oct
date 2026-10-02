@@ -1,0 +1,17 @@
+<template>
+  <lightning-card title="Quick Add Panel" icon-name="standard:account">
+    <template lwc:if={fields}>
+        <template for:each={fields} for:item="field">
+           <lightning-input key={field.apiName}
+                          label ={field.label}
+                          data-index={index}
+                          data-field={field.apiNmae}
+                          value="Hard Coded value"
+                          onchange={handleInputChange}
+                          type={field.dataType} >
+
+           </lightning-input>
+        </template>
+    </template>
+  </lightning-card>
+</template>

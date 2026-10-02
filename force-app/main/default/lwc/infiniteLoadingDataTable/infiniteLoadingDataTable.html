@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Infinite Scroll Accounts" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <!-- Search Input -->
+            <lightning-input 
+                type="search" 
+                label="Search" 
+                value={searchTerm} 
+                onchange={handleSearchChange} 
+                placeholder="Type to search...">
+            </lightning-input>
+        </div>
+
+        <!-- Data Table with Infinite Loading -->
+        <div class="slds-var-m-around_medium" style="height: 400px;">
+            <template if:true={dataList.length}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={dataList}
+                    columns={columns}
+                    hide-checkbox-column
+                    enable-infinite-loading={infiniteLoading}
+                    onloadmore={handleLoadMore}>
+                </lightning-datatable>
+            </template>
+
+            <!-- No Records State -->
+            <template if:false={dataList.length}>
+                <div class="slds-align_absolute-center slds-text-color_weak">No records found.</div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

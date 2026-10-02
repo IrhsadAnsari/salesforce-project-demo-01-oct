@@ -1,0 +1,14 @@
+<template>
+  <lightning-card title="Generic Data Table" icon-name="standard:account">
+    <template lwc:if="{dataList}">
+      <lightning-datatable
+        key-field="Id"
+        data="{dataList}"
+        show-row-number-column
+        hide-checkbox-column
+        columns="{columns}"
+      >
+      </lightning-datatable>
+    </template>
+  </lightning-card>
+</template>

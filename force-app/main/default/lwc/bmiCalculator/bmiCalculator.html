@@ -1,0 +1,37 @@
+<template>
+<Lightning-card title='Data Binding'>
+ <P>My component name is :{name}</P>
+ <Lightning-input type='text' name='name change' label ='Enter Component Name' value={name} onkeyup={handelNameChange}> </Lightning-input>   
+</Lightning-card>
+<Lightning-card title='Decorator In LWC'>
+ <P>Address city :{address.city}</P>
+  <P>Address Pincode :{address.pincode}</P>
+ <Lightning-input type='text' name='address' label ='Enter city' value={address.city} onkeyup={handleAddressChange}> </Lightning-input>   
+</Lightning-card>
+<Lightning-card title='Getter In LWC'>
+  <P>first number :{number1}</P>
+  <p>Second number: {number2}</p>
+ <Lightning-input type='Number' name='number1' label ='Enter Number 1' value={number1} onkeyup={handleNumberChange1}> </Lightning-input> 
+ <Lightning-input type='Number' name='number2' label ='Enter Number 12' value={number2} onkeyup={handleNumberChange2}> </Lightning-input>   
+  <h1>Sum of the number :{sumgetters}</h1>
+</Lightning-card>
+<Lightning-card title='Sum In LWC'>
+  <P>first number :{number1}</P>
+  <p>Second number: {number2}</p>
+ <Lightning-input type='Number' name='number1' label ='Enter Number 1' value={number1} onkeyup={handleNumberChange1}> </Lightning-input> 
+ <Lightning-input type='Number' name='number2' label ='Enter Number 12' value={number2} onkeyup={handleNumberChange2}> </Lightning-input>   
+<lightning-button label="Add" variant="brand" onclick ={sumHandler}></lightning-button>
+<h1>Sum of the Number :{sum}</h1>
+</Lightning-card>
+<lightning-card titel="BMI Calculator" icon-name="custom:custom14">
+  <div class="slds-p-around_medium">
+   <lightning-input label="Weight (kg)" type="number" value="weight" onchange={handleWeightChange} message-when-bad-input="Please enter a valid weght"></lightning-input>
+   <lightning-input label="Heigt (cm)" type="number" value="height" onchange={handleHieghtChange}></lightning-input>
+   <lightning-button label="Calulate BMI" variant="brand" onclick={calulateBmi}></lightning-button>
+    <template lwc:if={bmi}>
+      <p class="slds-m-top_medium">Your BMI is: <strong>{bmi}</strong></p>
+      <p>{bmiCategory}</p>
+    </template>
+  </div>
+</lightning-card>  
+</template>

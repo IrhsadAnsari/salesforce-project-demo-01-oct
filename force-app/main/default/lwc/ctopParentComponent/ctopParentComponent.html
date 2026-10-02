@@ -1,0 +1,9 @@
+<template>
+<lightning-card title="Child to Parent communication using event with data">
+    <p>Parent Component</p>
+    <p>Data recieved By parent: {dataReceived}</p>
+    <p>Name Received by EventBubling compent: {namereceived}</p>
+    <c-ctop-child-component onchildevent={parentEventHandler}></c-ctop-child-component>
+    <c-event-bubbling-parent onmycustomevent={nameChangeHnadler}></c-event-bubbling-parent>
+</lightning-card>
+</template>

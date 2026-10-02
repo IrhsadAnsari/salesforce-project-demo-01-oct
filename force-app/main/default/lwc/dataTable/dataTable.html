@@ -1,0 +1,41 @@
+<template>
+    <lightning-card title="List View" icon-name="standard:account">
+      <template if:true={data}>
+            <lightning-datatable key-field ="Id"
+             data={data}
+             columns={column}>
+            </lightning-datatable>
+ </template>
+    </lightning-card>
+  <lightning-card title="List View with Button Click" icon-name="standard:account">
+      <template lwc:if={dataList}>
+            <lightning-datatable key-field ="Id"
+             data={dataList}
+             show-row-number-column
+             row-number-offset={offsetValue}
+             hide-checkbox-column
+             columns={column}>
+            </lightning-datatable>
+      </template>
+      <template lwc:else>
+         <p>{error.message}</p>
+      </template>
+      <div class="slds-m-top_medium slds-m-bottom_x-large">
+                <!-- Button group: simple buttons -->
+        <lightning-button-group>
+             <div class="slds-col slds-size_1-of-3 slds-text-align_left">
+            <lightning-button variant="base" label="Previous" onclick={decreaseOffset}></lightning-button>
+            </div>
+            <div class="slds-col slds-size_1-of-3 slds-text-align_center">
+            <lightning-button variant="Brand" label="Load Account" onclick={handleClick}></lightning-button>
+            </div>
+            <div class="slds-col slds-size_1-of-3 slds-text-align_right">
+            <lightning-button variant="base" label="Next" onclick={increaseOffset}></lightning-button>
+            </div>
+        </lightning-button-group>
+      </div>
+      <lightning-button label="Download CSV" onclick={downloadCSV}></lightning-button>
+
+     
+    </lightning-card>
+</template>

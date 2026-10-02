@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title='Parent to child commmunication by passing Primitive data as static or using property'>
+        <div class='slds-m-top_medium'>
+            <p>Parent component </p>
+            <c-demo-child-component name="Mohit"
+            age={age}></c-demo-child-component>
+        </div>
+    </lightning-card>
+    <lightning-card title='Parent to child commmunication by passing non primitive data as static or using property'>
+        <div class='slds-m-top_medium'>
+            <p>Parent component </p>
+            <c-demo-child-component 
+            child-obj={parentObj}></c-demo-child-component>
+        </div>
+    </lightning-card>
+    <lightning-card title='Parent to child commmunication by passing data using event(action) on the parent'>
+        <div class='slds-m-top_medium'>
+            <p>Parent component </p>
+            <lightning-input type="text" title="name" label="name" onchange={nameChnageHandler}></lightning-input>
+            <c-demo-child-component
+            name={name} 
+            child-obj={parentObj}></c-demo-child-component>
+        </div>
+    </lightning-card>
+     <lightning-card title='Parent to child commmunication by calling method of the child component'>
+        <div class='slds-m-top_medium'>
+            <p>Parent component </p>
+            <p> Parent surname :{surname}</p>
+            <lightning-input type="text" title="surname" label="surname" onchange={surNameChangeHandler}></lightning-input>
+            <c-demo-child-component
+            child-obj={parentObj}></c-demo-child-component>
+        </div>
+    </lightning-card>
+     
+</template>

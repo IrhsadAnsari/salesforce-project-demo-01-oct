@@ -1,0 +1,8 @@
+.THIS.first {
+    text-shadow: 3px 2px red;
+}
+
+.THIS .second {
+   color:green;
+    font-style:bold;
+}

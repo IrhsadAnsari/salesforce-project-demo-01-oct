@@ -1,0 +1,16 @@
+<aura:component controller="CreateAccountRecordCTRL" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global" >
+	<!--aura:Handler name="init" value="{!this}" action="{!c.create}" /-->
+    <div class="slds-page-header">
+         Account Input Form:
+     </div> 
+    <div>
+        <lightning:input type="text" label="Enter Name" aura:id="accName" required="true"/>
+        <lightning:input type="text" label="Enter Phone" aura:id="accPhone" required="true"/>
+        <lightning:input type="text" label="Enter Rating" aura:id="accRating" required="true"/>
+        <lightning:input type="date" label="Enter Date" aura:id="accDate" required="true" />
+        
+   </div>
+    <div class="slds-docked-form-footer">
+        <lightning:button variant="brand" label="Create Account"  title="Brand action" onclick="{! c.createAccountRec}" />
+    </div>
+</aura:component>
