@@ -7,19 +7,17 @@ on:
 
 jobs:
   deploy:
-    # Changed from ubuntu-latest to pin it to a stable image during the GitHub migration period
     runs-on: ubuntu-24.04
 
     steps:
-      # Upgraded from @v3 to @v4 to resolve the Node.js deprecation warning
       - name: Checkout Code
         uses: actions/checkout@v4
 
-      # Combined step to update npm and install Salesforce CLI safely
       - name: Install Salesforce CLI with NPM
         run: |
           npm install -g npm@latest
-          npm install @salesforce/cli --global
+          # Added --allow-scripts flag to resolve CLI installation warnings safely
+          npm install @salesforce/cli --global --allow-scripts=@salesforce/cli,yarn,protobufjs
 
       - name: Authenticate to Salesforce
         run: |
