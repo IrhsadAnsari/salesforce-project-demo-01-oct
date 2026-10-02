@@ -73,6 +73,22 @@ public static List<Account> getAccountList2()
     }
 
   }
+  @AuraEnabled(cacheable=true)
+ public static List<Account> getAccountRecords(String searchKey)
+ {
+   try{
+      String searchTerm = '\'%'+searchKey+'%\'';
+      //return [Select Id,Name from Account where Name like '%searchKey%' ];
+     // query = 'SELECT Id, ' + fieldName + ' FROM Account WHERE ' + fieldName +' LIKE ' + searchTerm +' LIMIT 10';
+     String query ='Select Id, Name,Phone,Rating,Industry From Account Where Name Like '+searchTerm + ' LIMIT 10';
+     return Database.query(query);
+   }
+   catch(Exception e)
+    {
+      throw new AuraHandledException('Record Not found'+ e.getMessage());
+    }
+
+  }
 @AuraEnabled
 public static void updateAccounts(
     String accountsJson
